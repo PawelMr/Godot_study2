@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://i0rk3pidbiby"]
+
+[ext_resource type="Script" uid="uid://dflggji11ggt1" path="res://character_body_3d_scr.gd" id="1_gojnm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hsoxx"]
+sky_top_color = Color(0.79772294, 0.5991429, 1, 1)
+sky_horizon_color = Color(1.540184e-06, 0.77659583, 0.48571217, 1)
+sky_curve = 1.4270475
+sky_energy_multiplier = 16.42
+ground_bottom_color = Color(0.13336319, 0.16377878, 0.09621177, 1)
+ground_horizon_color = Color(0.42062038, 0.55036724, 0.2764738, 1)
+ground_curve = 0.007320452
+
+[sub_resource type="Sky" id="Sky_gojnm"]
+sky_material = SubResource("ProceduralSkyMaterial_hsoxx")
+
+[sub_resource type="Environment" id="Environment_1c2mv"]
+background_mode = 2
+background_energy_multiplier = 4.0
+sky = SubResource("Sky_gojnm")
+ambient_light_energy = 1.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1c2mv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f7g2b"]
+
+[node name="TestLevel" type="Node3D" unique_id=1949866947]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=341225441]
+environment = SubResource("Environment_1c2mv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=166372151]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 78.12696, -424.93326)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=413612889]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D" unique_id=613440192]
+use_collision = true
+size = Vector3(100, 0.5, 100)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1628037815]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8185184, 0)
+script = ExtResource("1_gojnm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=2141252640]
+mesh = SubResource("CapsuleMesh_1c2mv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/MeshInstance3D" unique_id=250538331]
+shape = SubResource("CapsuleShape3D_f7g2b")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/MeshInstance3D" unique_id=1132469160]
+transform = Transform3D(1, 0, 0, 0, 0.9616791, 0.27417743, 0, -0.27417743, 0.9616791, 0, 0.9599316, 1.7847352)
