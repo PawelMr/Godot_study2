@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 # Настраиваемые параметры
 @export var speed: float = 5.0
+@export var weight_speed: float = 0.3
 @export var jump_velocity: float = 4.5
 # Гравитация обычно берется из настроек проекта, но можно задать и свою
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -35,11 +36,11 @@ func _physics_process(delta: float) -> void:
 	
 	# 2. Горизонтальное движение
 	if direction:
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+		velocity.x = lerp(velocity.x, direction.x * speed, weight_speed)
+		velocity.z = lerp(velocity.z, direction.z * speed, weight_speed) 
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
+		velocity.x = lerp(velocity.x, move_toward(velocity.x, 0, speed), weight_speed) 
+		velocity.z = lerp(velocity.z, move_toward(velocity.z, 0, speed), weight_speed)  
 
 	# 3. Вертикальная составляющая (гравитация и прыжок)
 	# Применяем гравитацию
