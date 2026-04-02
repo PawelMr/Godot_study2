@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="character_controller"
-run/main_scene="res://test_level.tscn"
+run/main_scene="uid://dev4cwhr20vhm"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
