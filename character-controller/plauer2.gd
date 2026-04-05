@@ -220,12 +220,13 @@ func update_crouch(delta) -> void:
 	is_crouching- состояние true - присесть, false- встать
 	delta- изменение времени
 	"""
-	if height_change:
+	if height_change or want_up:
 		if want_up:
 			# проверяем можем ли встать
 			if can_stand_up():
 				want_up = false
 				is_crouching = false
+				height_change=true
 		# садимся
 		if is_crouching:
 			mesh_pivot.crouch(crouch_speed*delta)
