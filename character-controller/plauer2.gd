@@ -219,6 +219,7 @@ func update_crouch(delta) -> void:
 	want_up - переменная желания встать true- надо попробовать встать, false состояние не меняем
 	is_crouching- состояние true - присесть, false- встать
 	delta- изменение времени
+	height_change - изменяем состояние что бы зря не гонять отрисовку
 	"""
 	if height_change or want_up:
 		if want_up:
