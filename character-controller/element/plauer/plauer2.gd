@@ -15,18 +15,23 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var number_jump = 0
 
 # сила рывка
-@export var dash_speed: float=100
+@export var dash_speed: float=21
+# время осуществления рывка
+@export var dash_time:float = 1
+var dash_timer =dash_time
+var status_desh: bool
+var vector_dash: Vector3
+
 # вмремя перезарядки рывка
-@export var reload_dash_time = 3
-var dash_timer = 0.0
+@export var reload_dash_time:float = 3
+var dash_timer_reload:float = 0.0
 
 # количество рывков
 @export var count_dash_max = 3
 var count_dash = count_dash_max
-
 # минимальный  таймер между рывками
 @export var dash_cooldown = 0.8
-var blocked_dash = true
+var open_dash = true
 
 
 # Чувствительность мышы
@@ -91,10 +96,10 @@ func _input(event):
 		
 func _physics_process(delta: float) -> void:
 	if count_dash_max>count_dash:
-		dash_timer+= delta
-		if dash_timer>=reload_dash_time:
+		dash_timer_reload+= delta
+		if dash_timer_reload>=reload_dash_time:
 			count_dash+=1
-			dash_timer = 0.0
+			dash_timer_reload = 0.0
 			
 			
 	if fixation_camera:
@@ -104,20 +109,24 @@ func _physics_process(delta: float) -> void:
 	# 1. Получаем вектор ввода (WASD или стрелки)
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	
-	if fixation_camera:
-		# =========================
-		# для персонажа соедененного с камерой
-		move_together_camera(input_dir,delta)
-	else:
-		# =========================
-		# для персонажа отдельно от камеры
-		move_singly_camera(input_dir, delta)
+	if not status_desh:
+		if fixation_camera:
+			# =========================
+			# для персонажа соедененного с камерой
+			move_together_camera(input_dir,delta)
+		else:
+			# =========================
+			# для персонажа отдельно от камеры
+			move_singly_camera(input_dir, delta)
 		
-	if Input.is_action_just_pressed("dash") and blocked_dash and count_dash>0:
+	if Input.is_action_just_pressed("dash") and open_dash and count_dash>0 and not status_desh:
+		
 		if velocity.x or velocity.z:
 			start_dash(velocity)
 		else:
-			start_dash(mesh_pivot.transform.basis.z*-speed)
+			start_dash(mesh_pivot.transform.basis.z*-1)
+	if status_desh:
+		make_dash(delta)
 		
 	# 2. Реализуем приседания
 	update_crouch(delta)
@@ -138,16 +147,28 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func start_dash(vector_move:Vector3):
-	blocked_dash = false
-	
-	# Применяем силу рывка
-	velocity.x = vector_move.x * dash_speed
-	velocity.z = vector_move.z * dash_speed
+	"""
+	подготовка данных для рывка
+	"""
+	open_dash = false
+	status_desh =true
+	vector_dash = vector_move
 	count_dash-=1
-	
 	# Запускаем перезарядку
 	await get_tree().create_timer(dash_cooldown).timeout
-	blocked_dash = true
+	open_dash = true
+
+func make_dash(delta):
+	"""
+	делаем рывок
+	"""
+	if dash_timer>0:
+		velocity.x = lerp(velocity.x, vector_dash.x * dash_speed, dash_speed * delta)
+		velocity.z = lerp(velocity.z, vector_dash.z * dash_speed, dash_speed * delta)
+		dash_timer -= delta
+	else:
+		dash_timer=dash_time
+		status_desh=false
 
 func move_together_camera(input_dir,delta) -> void:
 	"""
@@ -168,8 +189,8 @@ func move_together_camera(input_dir,delta) -> void:
 		#velocity.x = lerp(velocity.x, direction.x * speed_max, weight_speed)
 		#velocity.z = lerp(velocity.z, direction.z * speed_max, weight_speed)
 		#============================== 
-		velocity.x = move_toward(velocity.x, direction.x * speed_max, weight_speed * delta)
-		velocity.z = move_toward(velocity.z, direction.z * speed_max, weight_speed * delta)
+		#velocity.x = move_toward(velocity.x, direction.x * speed_max, weight_speed * delta)
+		#velocity.z = move_toward(velocity.z, direction.z * speed_max, weight_speed * delta)
 		#============================== 
 	else:
 		speed = move_toward(speed, 0, weight_speed * delta)
@@ -179,8 +200,8 @@ func move_together_camera(input_dir,delta) -> void:
 		#velocity.x = lerp(velocity.x, move_toward(velocity.x, 0, speed_max), weight_speed) 
 		#velocity.z = lerp(velocity.z, move_toward(velocity.z, 0, speed_max), weight_speed)
 		#============================== 
-		velocity.x = move_toward(velocity.x, 0.0, weight_speed * delta)
-		velocity.z = move_toward(velocity.z, 0.0, weight_speed * delta)
+		#velocity.x = move_toward(velocity.x, 0.0, weight_speed * delta)
+		#velocity.z = move_toward(velocity.z, 0.0, weight_speed * delta)
 
 func move_singly_camera(input_dir, delta) -> void:
 	"""
