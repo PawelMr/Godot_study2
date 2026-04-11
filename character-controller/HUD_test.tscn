@@ -1,0 +1,407 @@
+[gd_scene format=3 uid="uid://g6d1oml7s0ng"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5xyro"]
+
+[sub_resource type="Gradient" id="Gradient_5xyro"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k5de2"]
+gradient = SubResource("Gradient_5xyro")
+width = 30
+height = 30
+
+[node name="Control" type="Control" unique_id=457262972]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=288544515]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=2085765627]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5xyro")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer" unique_id=1429010431]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer" unique_id=1721274879]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_constants/separation = 9
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=796110864]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=390291262]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=202891492]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/AspectRatioContainer" unique_id=595283903]
+layout_mode = 2
+value = 75.0
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_k5de2")
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=314500269]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "1"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1698446722]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=795818272]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2/AspectRatioContainer2" unique_id=347237594]
+layout_mode = 2
+value = 75.0
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_k5de2")
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1372891483]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "2"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1141591360]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=533349531]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/AspectRatioContainer3" unique_id=90738389]
+layout_mode = 2
+value = 75.0
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_k5de2")
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=930760061]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "3"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=789243794]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=1444938659]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer4/AspectRatioContainer" unique_id=2120320412]
+layout_mode = 2
+value = 75.0
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_k5de2")
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=1814714014]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "4"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=1772424682]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=990745837]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=2080298883]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/AspectRatioContainer" unique_id=1953034943]
+layout_mode = 2
+value = 75.0
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_k5de2")
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=2071327824]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sift"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=154765283]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=1302111907]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/AspectRatioContainer2" unique_id=27565030]
+layout_mode = 2
+value = 75.0
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_k5de2")
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=374476430]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Q"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1333891601]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer3" unique_id=644926224]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/AspectRatioContainer3" unique_id=522965027]
+layout_mode = 2
+value = 75.0
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_k5de2")
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer3" unique_id=260493062]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "E"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer" unique_id=360498328]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer" unique_id=1951385429]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_constants/separation = 9
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer3" unique_id=219856259]
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer3/HBoxContainer" unique_id=1271845577]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer3/HBoxContainer/AspectRatioContainer" unique_id=646279312]
+layout_mode = 2
+value = 75.0
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_k5de2")
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer3/HBoxContainer" unique_id=479627566]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer3/HBoxContainer/AspectRatioContainer2" unique_id=1796513799]
+layout_mode = 2
+value = 75.0
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_k5de2")
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer3/HBoxContainer" unique_id=421814693]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer3/HBoxContainer/AspectRatioContainer3" unique_id=817838515]
+layout_mode = 2
+value = 75.0
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_k5de2")
+
+[node name="AspectRatioContainer4" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer3/HBoxContainer" unique_id=1181889753]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer3/HBoxContainer/AspectRatioContainer4" unique_id=1242342062]
+layout_mode = 2
+value = 75.0
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_k5de2")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer3" unique_id=1834607777]
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer3/HBoxContainer2" unique_id=1133768328]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer3/HBoxContainer2/AspectRatioContainer" unique_id=74436821]
+layout_mode = 2
+value = 75.0
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_k5de2")
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer3/HBoxContainer2" unique_id=325163272]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer3/HBoxContainer2/AspectRatioContainer2" unique_id=983964804]
+layout_mode = 2
+value = 75.0
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_k5de2")
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer3/HBoxContainer2" unique_id=818564222]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer3/HBoxContainer2/AspectRatioContainer3" unique_id=110599158]
+layout_mode = 2
+value = 75.0
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_k5de2")
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer" unique_id=1242620410]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_constants/separation = 9
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer4" unique_id=1296214070]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer4/HBoxContainer3" unique_id=522895345]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer4/HBoxContainer3" unique_id=1281569128]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer4/HBoxContainer3/VBoxContainer2" unique_id=1275531233]
+layout_mode = 2
+theme_override_constants/h_separation = 9
+theme_override_constants/v_separation = 7
+columns = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer4/HBoxContainer3/VBoxContainer2/GridContainer" unique_id=1350457154]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer4/HBoxContainer3/VBoxContainer2/GridContainer/VBoxContainer" unique_id=768941860]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer4/HBoxContainer3/VBoxContainer2/GridContainer/VBoxContainer/AspectRatioContainer" unique_id=1768831159]
+layout_mode = 2
+value = 75.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_k5de2")
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer4/HBoxContainer3/VBoxContainer2/GridContainer/VBoxContainer" unique_id=1810530723]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "1"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer4/HBoxContainer3/VBoxContainer2/GridContainer" unique_id=1831955487]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer4/HBoxContainer3/VBoxContainer2/GridContainer/VBoxContainer2" unique_id=1704848717]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer4/HBoxContainer3/VBoxContainer2/GridContainer/VBoxContainer2/AspectRatioContainer" unique_id=1684031312]
+layout_mode = 2
+value = 75.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_k5de2")
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer4/HBoxContainer3/VBoxContainer2/GridContainer/VBoxContainer2" unique_id=1012854635]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "1"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer4/HBoxContainer3/VBoxContainer2/GridContainer" unique_id=615437797]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer4/HBoxContainer3/VBoxContainer2/GridContainer/VBoxContainer3" unique_id=551539486]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer4/HBoxContainer3/VBoxContainer2/GridContainer/VBoxContainer3/AspectRatioContainer" unique_id=1549007814]
+layout_mode = 2
+value = 75.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_k5de2")
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer4/HBoxContainer3/VBoxContainer2/GridContainer/VBoxContainer3" unique_id=969577]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "1"
