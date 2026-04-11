@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bywu7uhgvbqox" path="res://element/plauer/player.tscn" id="1_dtoos"]
 [ext_resource type="PackedScene" uid="uid://g6d1oml7s0ng" path="res://HUD_test.tscn" id="2_6si8x"]
+[ext_resource type="PackedScene" uid="uid://cjc7gghxjj0yd" path="res://HUD_test2.tscn" id="3_6vons"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngg8j"]
 sky_top_color = Color(0.28913724, 0.7994584, 0.8005951, 1)
@@ -334,3 +335,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=209980999]
 
 [node name="Control" parent="CanvasLayer" unique_id=457262972 instance=ExtResource("2_6si8x")]
+visible = false
+
+[node name="Control2" parent="CanvasLayer" unique_id=1235900147 instance=ExtResource("3_6vons")]
