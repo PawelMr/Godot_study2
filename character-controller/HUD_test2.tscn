@@ -33,7 +33,7 @@ layout_mode = 2
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control" unique_id=87072847]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.92
+anchor_top = 0.94
 anchor_right = 0.16
 anchor_bottom = 1.0
 offset_top = -23.0
@@ -44,7 +44,7 @@ theme_override_constants/margin_right = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer" unique_id=561972192]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer" unique_id=1142086556]
 layout_mode = 2
@@ -52,7 +52,7 @@ size_flags_horizontal = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1028148903]
 layout_mode = 2
-size_flags_vertical = 2
+size_flags_vertical = 10
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1959783392]
 custom_minimum_size = Vector2(0, 30)
@@ -69,12 +69,13 @@ texture_progress = SubResource("GradientTexture2D_ji4pu")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer" unique_id=274012203]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 10
 
 [node name="Label" type="Label" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1638049107]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 8
+theme_override_font_sizes/font_size = 14
 text = "1"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer" unique_id=92417262]
@@ -83,7 +84,7 @@ size_flags_horizontal = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=818069730]
 layout_mode = 2
-size_flags_vertical = 2
+size_flags_vertical = 10
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=708607463]
 custom_minimum_size = Vector2(0, 30)
@@ -106,7 +107,8 @@ size_flags_vertical = 10
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 8
-text = "1"
+theme_override_font_sizes/font_size = 14
+text = "2"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer" unique_id=480778642]
 layout_mode = 2
@@ -114,7 +116,7 @@ size_flags_horizontal = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1198599157]
 layout_mode = 2
-size_flags_vertical = 2
+size_flags_vertical = 10
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer" unique_id=1577488699]
 custom_minimum_size = Vector2(0, 30)
@@ -137,7 +139,40 @@ size_flags_vertical = 10
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 8
-text = "1"
+theme_override_font_sizes/font_size = 14
+text = "3"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer" unique_id=1929786562]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer4" unique_id=929720965]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer4/HBoxContainer" unique_id=2134395209]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer4/HBoxContainer/AspectRatioContainer" unique_id=205388835]
+layout_mode = 2
+value = 75.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_ji4pu")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer4" unique_id=78446333]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Label" type="Label" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer4/HBoxContainer2" unique_id=1231342027]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 14
+text = "4"
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=107469144]
 visible = false

@@ -17,9 +17,9 @@ var number_jump = 0
 # сила рывка
 @export var dash_speed: float=21
 # время осуществления рывка
-@export var dash_time:float = 1
+@export var dash_time:float = 0.5
 var dash_timer =dash_time
-var status_desh: bool
+var status_desh: bool =false
 var vector_dash: Vector3
 
 # вмремя перезарядки рывка
@@ -152,7 +152,7 @@ func start_dash(vector_move:Vector3):
 	"""
 	open_dash = false
 	status_desh =true
-	vector_dash = vector_move
+	vector_dash = vector_move.normalized()
 	count_dash-=1
 	# Запускаем перезарядку
 	await get_tree().create_timer(dash_cooldown).timeout
