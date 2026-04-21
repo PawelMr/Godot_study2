@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://bywu7uhgvbqox"]
 
 [ext_resource type="Script" uid="uid://2353c6gbkrov" path="res://element/plauer/plauer2.gd" id="1_i3pqv"]
-[ext_resource type="Script" uid="uid://dblmc787jvebt" path="res://mesh_instance_plauer2.gd" id="2_hqtel"]
-[ext_resource type="Script" uid="uid://doeu4st7s08yb" path="res://spring_arm_plauer2.gd" id="3_sweqy"]
+[ext_resource type="Script" uid="uid://dblmc787jvebt" path="res://element/plauer/mesh_instance_plauer2.gd" id="2_hqtel"]
+[ext_resource type="Script" uid="uid://doeu4st7s08yb" path="res://element/plauer/spring_arm_plauer2.gd" id="3_sweqy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6vons"]
 
@@ -41,11 +41,12 @@ metallic = 0.41
 metallic_specular = 0.51
 roughness = 0.22
 
-[node name="Player" type="CharacterBody3D" unique_id=570813840 node_paths=PackedStringArray("spring_arm", "mesh_pivot", "collision_shape")]
+[node name="Player" type="CharacterBody3D" unique_id=570813840 node_paths=PackedStringArray("spring_arm", "mesh_pivot", "collision_shape", "weapon_container")]
 script = ExtResource("1_i3pqv")
 spring_arm = NodePath("SpringArm3D")
 mesh_pivot = NodePath("MeshInstance3D")
 collision_shape = NodePath("CollisionShape3D")
+weapon_container = NodePath("MeshInstance3D/WeaponContainer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=420849522]
 shape = SubResource("CapsuleShape3D_6vons")
@@ -73,6 +74,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_l47x0")
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, -0.22142625, 0)
 mesh = SubResource("ArrayMesh_1l30b")
 surface_material_override/0 = SubResource("StandardMaterial3D_by3x8")
+
+[node name="WeaponContainer" type="Node3D" parent="MeshInstance3D" unique_id=326966266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49462122, 0.1905064, 0.36782128)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=868104368]
 transform = Transform3D(-1, 4.371139e-08, -7.5710346e-08, 0, 0.8660254, 0.5, 8.742278e-08, 0.5, -0.8660254, 0, 1, 0)

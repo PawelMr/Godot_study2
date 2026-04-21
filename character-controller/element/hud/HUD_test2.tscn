@@ -1,0 +1,343 @@
+[gd_scene format=3 uid="uid://cjc7gghxjj0yd"]
+
+[ext_resource type="Script" uid="uid://bqion84n51cqn" path="res://element/hud/hud_test_2.gd" id="1_f6p5p"]
+
+[sub_resource type="Gradient" id="Gradient_f6p5p"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ji4pu"]
+gradient = SubResource("Gradient_f6p5p")
+width = 30
+height = 30
+
+[sub_resource type="Gradient" id="Gradient_al8ag"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3npfk"]
+gradient = SubResource("Gradient_al8ag")
+
+[node name="Control" type="Control" unique_id=1235900147 node_paths=PackedStringArray("shift_bar", "shift_bar2", "q_bar", "f_bar", "button_1_bar", "button_2_bar", "button_3_bar", "button_4_bar", "lable1", "lable3")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f6p5p")
+shift_bar = NodePath("MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer3/HBoxContainer/AspectRatioContainer/TextureProgressBar")
+shift_bar2 = NodePath("MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer3/HBoxContainer/AspectRatioContainer/TextureProgressBar2")
+q_bar = NodePath("MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer2/HBoxContainer/AspectRatioContainer/TextureProgressBar")
+f_bar = NodePath("MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer/HBoxContainer/AspectRatioContainer/TextureProgressBar")
+button_1_bar = NodePath("MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AspectRatioContainer/TextureProgressBar")
+button_2_bar = NodePath("MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/AspectRatioContainer/TextureProgressBar")
+button_3_bar = NodePath("MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/AspectRatioContainer/TextureProgressBar")
+button_4_bar = NodePath("MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer4/HBoxContainer/AspectRatioContainer/TextureProgressBar")
+lable1 = NodePath("MarginContainer/Control/MarginContainer3/HBoxContainer/Label")
+lable3 = NodePath("MarginContainer/Control/MarginContainer3/HBoxContainer/Label3")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=769523769]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Control" type="Control" parent="MarginContainer" unique_id=1423728347]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Control" unique_id=1151667694]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84
+anchor_top = 0.94
+anchor_right = 0.95
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 57.0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer2" unique_id=1039300140]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/MarginContainer2/HBoxContainer" unique_id=1614964699]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer" unique_id=555270558]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1529336869]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer/HBoxContainer/AspectRatioContainer" unique_id=1443657679]
+layout_mode = 2
+value = 100.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_ji4pu")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer" unique_id=628374205]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Label" type="Label" parent="MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1848391414]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 14
+text = "F"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Control/MarginContainer2/HBoxContainer" unique_id=366958142]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer2" unique_id=577643091]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=901062324]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer2/HBoxContainer/AspectRatioContainer" unique_id=1718413446]
+layout_mode = 2
+value = 100.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_ji4pu")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer2" unique_id=1423343176]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Label" type="Label" parent="MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=288966016]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 14
+text = "Q"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/Control/MarginContainer2/HBoxContainer" unique_id=269807486]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer3" unique_id=1167181817]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer3/HBoxContainer" unique_id=1517327910]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer3/HBoxContainer/AspectRatioContainer" unique_id=114106919]
+layout_mode = 2
+value = 50.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_ji4pu")
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer3/HBoxContainer/AspectRatioContainer" unique_id=549729492]
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 2
+value = 100.0
+fill_mode = 2
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture1D_3npfk")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer3" unique_id=219885193]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Label" type="Label" parent="MarginContainer/Control/MarginContainer2/HBoxContainer/VBoxContainer3/HBoxContainer2" unique_id=1615567878]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 14
+text = "Shift"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control" unique_id=87072847]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.94
+anchor_right = 0.16
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 57.0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer" unique_id=561972192]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer" unique_id=1142086556]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1028148903]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1959783392]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AspectRatioContainer" unique_id=1432095778]
+layout_mode = 2
+value = 100.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_ji4pu")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer" unique_id=274012203]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Label" type="Label" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1638049107]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 14
+text = "1"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer" unique_id=92417262]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=818069730]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=708607463]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/AspectRatioContainer" unique_id=457105906]
+layout_mode = 2
+value = 100.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_ji4pu")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=871914231]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Label" type="Label" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=799032187]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 14
+text = "2"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer" unique_id=480778642]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1198599157]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer" unique_id=1577488699]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/AspectRatioContainer" unique_id=926794067]
+layout_mode = 2
+value = 100.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_ji4pu")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1704269779]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Label" type="Label" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer2" unique_id=558535030]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 14
+text = "3"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer" unique_id=1929786562]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer4" unique_id=929720965]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer4/HBoxContainer" unique_id=2134395209]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer4/HBoxContainer/AspectRatioContainer" unique_id=205388835]
+layout_mode = 2
+value = 100.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_ji4pu")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer4" unique_id=78446333]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Label" type="Label" parent="MarginContainer/Control/MarginContainer/HBoxContainer/VBoxContainer4/HBoxContainer2" unique_id=1231342027]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 14
+text = "4"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/Control" unique_id=886485368]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.81
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/MarginContainer3" unique_id=1168091519]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+
+[node name="Label" type="Label" parent="MarginContainer/Control/MarginContainer3/HBoxContainer" unique_id=241283891]
+layout_mode = 2
+text = "0"
+
+[node name="Label2" type="Label" parent="MarginContainer/Control/MarginContainer3/HBoxContainer" unique_id=2069364840]
+layout_mode = 2
+size_flags_vertical = 8
+text = "/"
+
+[node name="Label3" type="Label" parent="MarginContainer/Control/MarginContainer3/HBoxContainer" unique_id=1184676769]
+layout_mode = 2
+text = "0"

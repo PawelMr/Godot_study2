@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://i0rk3pidbiby"]
 
-[ext_resource type="Script" uid="uid://dflggji11ggt1" path="res://character_body_3d_scr.gd" id="1_gojnm"]
+[ext_resource type="Script" uid="uid://dflggji11ggt1" path="res://old_test/character_body_3d_scr.gd" id="1_vhslp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hsoxx"]
 sky_top_color = Color(0.79772294, 0.5991429, 1, 1)
@@ -183,7 +183,7 @@ mesh = SubResource("ArrayMesh_y646j")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1628037815]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2312062, 0)
-script = ExtResource("1_gojnm")
+script = ExtResource("1_vhslp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=250538331]
 shape = SubResource("CapsuleShape3D_gojnm")

@@ -1,8 +1,9 @@
 [gd_scene format=4 uid="uid://dev4cwhr20vhm"]
 
 [ext_resource type="PackedScene" uid="uid://bywu7uhgvbqox" path="res://element/plauer/player.tscn" id="1_dtoos"]
-[ext_resource type="PackedScene" uid="uid://g6d1oml7s0ng" path="res://HUD_test.tscn" id="2_6si8x"]
-[ext_resource type="PackedScene" uid="uid://cjc7gghxjj0yd" path="res://HUD_test2.tscn" id="3_6vons"]
+[ext_resource type="Script" uid="uid://drif6earcud04" path="res://test_damage.gd" id="1_p66kq"]
+[ext_resource type="PackedScene" uid="uid://g6d1oml7s0ng" path="res://element/hud/HUD_test_bed.tscn" id="2_6si8x"]
+[ext_resource type="PackedScene" uid="uid://cjc7gghxjj0yd" path="res://element/hud/HUD_test2.tscn" id="3_6vons"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngg8j"]
 sky_top_color = Color(0.28913724, 0.7994584, 0.8005951, 1)
@@ -237,6 +238,17 @@ _surfaces = [{
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p66kq"]
 
+[sub_resource type="Gradient" id="Gradient_6vons"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p66kq"]
+gradient = SubResource("Gradient_6vons")
+fill_from = Vector2(0.20512821, 0.21367522)
+fill_to = Vector2(0.52136755, 0.4059829)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04b2c"]
+albedo_color = Color(0.7366758, 0.40132642, 0.14199144, 1)
+albedo_texture = SubResource("GradientTexture2D_p66kq")
+
 [node name="test_lvl_2" type="Node3D" unique_id=1445436637]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=146368153]
@@ -329,8 +341,18 @@ transform = Transform3D(80, 0, 0, 0, 1, 0, 0, 0, 80, 0, 0.4820912, 0)
 use_collision = true
 material = SubResource("StandardMaterial3D_p66kq")
 
-[node name="Player" parent="." unique_id=570813840 instance=ExtResource("1_dtoos")]
+[node name="CSGBox3D2" type="CSGBox3D" parent="StaticBody3D" unique_id=675705654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.195821, 13.743659)
+use_collision = true
+collision_layer = 5
+collision_mask = 5
+size = Vector3(5, 5, 5)
+material = SubResource("StandardMaterial3D_04b2c")
+script = ExtResource("1_p66kq")
+
+[node name="Player" parent="." unique_id=570813840 node_paths=PackedStringArray("hud_menu") instance=ExtResource("1_dtoos")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+hud_menu = NodePath("../CanvasLayer/Control2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=209980999]
 

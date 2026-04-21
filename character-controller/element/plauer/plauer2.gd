@@ -1,48 +1,64 @@
 extends CharacterBody3D
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+## Скорость персонажа
 @export var default_move_speed: float = 7
+## Скорость персонажа в приседе
 @export var crouch_move_speed: float = 5
+## Скорость выполнения присида/вставания
 @export var crouch_speed: float = 2
 
-# Ускорение персонажа ( как быстро наберет скорость или остановится)
+## Ускорение персонажа ( как быстро наберет скорость или остановится)
 @export var weight_speed: float =15
-# скорость поворота
+## скорость поворота
 @export var turn_speed: float = 5
-# скорость прыжка
+## скорость прыжка (от нее зависит высота)
 @export var jump_velocity: float = 5.5
+##количество прыжков без косания земли
 @export var count_jump = 2
 var number_jump = 0
 
-# сила рывка
+## сила рывка (как далекко и быстро будет выполнен рывок)
 @export var dash_speed: float=21
-# время осуществления рывка
+## время осуществления рывка ( чем дольше сохраняет скорость тем дальше рывок)
 @export var dash_time:float = 0.5
 var dash_timer =dash_time
 var status_desh: bool =false
 var vector_dash: Vector3
 
-# вмремя перезарядки рывка
+# вмремя перезарядки рывка (восполнение на 1 числа доступных рывков)
 @export var reload_dash_time:float = 3
 var dash_timer_reload:float = 0.0
 
-# количество рывков
+## количество доступных рывков
 @export var count_dash_max = 3
 var count_dash = count_dash_max
-# минимальный  таймер между рывками
+## время между двумя рывками подряд (остывание рывка)
 @export var dash_cooldown = 0.8
+var timer_cooldown = 0
 var open_dash = true
 
 
-# Чувствительность мышы
+## Чувствительность мышы (скорость поворота камеры)
 @export var mouse_sensitivity: float = 0.03
+## нода Пружина камеры
+@export var spring_arm: SpringArm3D = null 
+## Узел с моделькой персонажа
+@export var mesh_pivot: Node3D =   null 
+## Колизия персонажа
+@export var collision_shape: CollisionShape3D = null 
+## меню HUD игрока
+@export var hud_menu: Control = null
+## контейнер под оружее правая рука
+@export var weapon_container: Node3D= null
 
-@export var spring_arm: SpringArm3D = null # Пружина камеры
-@export var mesh_pivot: Node3D =   null # Узел с моделькой персонажа
-@export var collision_shape: CollisionShape3D = null # Колизия персонажа
+## Текущее оружие
+@export var current_weapon: Weapon = null
 
-#скорость движения персонажа
+
+#скорость движения персонажа максимально доступная в нынешнем положении
 var speed_max: float = default_move_speed
+#скорость движения персонажа в моменте
 var speed: float = 0
 # персонаж присел
 var is_crouching: bool = false
@@ -83,7 +99,7 @@ func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	#
-	## Обработка приседания
+	# Обработка приседания
 	if event.is_action_pressed("crouch"):
 		if not is_crouching: 
 			height_change=true
@@ -93,11 +109,32 @@ func _input(event):
 		if is_crouching:
 			height_change=true
 			want_up= true
+	if Input.is_action_just_pressed("button_1"):
+		equip_weapon(preload("res://element/weapons/Weapon.tscn").instantiate())
+	
+	# Стрельба (ЛКМ)
+	if event.is_action_pressed("shoot"):
+		if current_weapon:
+			# Передаем только направление и точку вылета
+			var shoot_origin = weapon_container.global_position
+			var direction_weapon_container = weapon_container.global_transform.basis.z
+			var direction_spring_arm = -spring_arm.global_transform.basis.z
+			direction_spring_arm = Basis(Vector3.RIGHT, deg_to_rad(-30)) * direction_spring_arm
+			direction_weapon_container.y = direction_spring_arm.y
+			var shoot_dir = direction_weapon_container
+			current_weapon.shoot(shoot_dir, shoot_origin)
+
+	# Перезарядка (R)
+	if event.is_action_pressed("reload"):
+		if current_weapon:
+			current_weapon.start_reload()
 		
 func _physics_process(delta: float) -> void:
 	if count_dash_max>count_dash:
+		hud_menu.update_bar(dash_timer_reload, reload_dash_time, "shift")
 		dash_timer_reload+= delta
 		if dash_timer_reload>=reload_dash_time:
+			hud_menu.update_bar(reload_dash_time, reload_dash_time, "shift")
 			count_dash+=1
 			dash_timer_reload = 0.0
 			
@@ -154,8 +191,11 @@ func start_dash(vector_move:Vector3):
 	status_desh =true
 	vector_dash = vector_move.normalized()
 	count_dash-=1
+	timer_cooldown = dash_cooldown
 	# Запускаем перезарядку
+	#print(str(timer_cooldown)+"  "+str(dash_cooldown))
 	await get_tree().create_timer(dash_cooldown).timeout
+	hud_menu.update_bar(0,dash_cooldown,"shift2")
 	open_dash = true
 
 func make_dash(delta):
@@ -295,9 +335,50 @@ func can_stand_up() -> bool:
 	
 	var results = space_state.intersect_shape(params)
 	return results.is_empty()
-
-func _process(_delta):
 	
+
+func equip_weapon(new_weapon: Weapon):
+	"""
+	Достаем оружее
+	"""
+	# Убираем старое оружие
+	if current_weapon:
+		current_weapon.queue_free()
+	
+	current_weapon = new_weapon
+	weapon_container.add_child(current_weapon)
+	current_weapon.global_position = weapon_container.global_position
+	current_weapon.global_rotation = weapon_container.global_rotation
+		
+	# Подписываемся на сигналы оружия
+	current_weapon.weapon_fired.connect(_on_weapon_fired)
+	#current_weapon.reload_started.connect(_on_reload_started)
+	current_weapon.ammo_changed.connect(_on_ammo_changed)
+	print("Equipped: ", current_weapon.weapon_name)
+	current_weapon.update_ammo_signal()
+
+# Обработка попадания (урон наносит оружие, но игрок может добавить эффекты)
+func _on_weapon_fired(direction, origin, hit_pos, hit_normal, hit_object, damage):
+	print("Выстрел")
+	if hit_object:
+		print("Куда то попал")
+	if hit_object and hit_object.has_method("take_damage"):
+		hit_object.take_damage(damage)
+	if hit_object and hit_object.has_method("create_hit_effect"): 
+		hit_object.create_hit_effect(hit_pos, hit_normal)
+
+
+func _on_ammo_changed(current, max_current):
+	# Обновляем UI
+	hud_menu.ubdate_txt(current, max_current)
+	
+		
+func _process(delta):
+	if hud_menu and not open_dash:
+		# print(str(timer_cooldown)+"  "+str(dash_cooldown))
+		timer_cooldown -= delta
+		hud_menu.update_bar(timer_cooldown, dash_cooldown, "shift2")
+		
 	# Используем встроенную отладку (работает только в редакторе)
 	if Engine.is_editor_hint() or OS.is_debug_build():
 		## Рисуем капсулу для проверки места над головой
@@ -310,10 +391,17 @@ func _process(_delta):
 		#DebugDraw3D.draw_sphere(check_pos,0.1,Color.BLUE,0.5)
 		
 		var start_point = global_position
-		start_point.y=start_point.y+2.2
 		var direction = global_transform.basis.z
 		var end_point = start_point + direction * 3.0
 		DebugDraw3D.draw_line(start_point, end_point, Color.YELLOW, 0.05)
+		
+		var start_point2 = weapon_container.global_position
+		var direction3 = weapon_container.global_transform.basis.z
+		var direction2 = -spring_arm.global_transform.basis.z
+		direction2 = Basis(Vector3.RIGHT, deg_to_rad(-30)) * direction2
+		direction3.y = direction2.y
+		var end_point2 = start_point2 + direction3 * 10.0
+		DebugDraw3D.draw_line(start_point2, end_point2, Color.BLACK, 0.05)
 		
 		start_point = mesh_pivot.global_position
 		start_point.y=start_point.y+1
